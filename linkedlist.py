@@ -57,7 +57,12 @@ class linkedlist :
         if self.is_empty():
             raise Empty('stack is empty')
         toreturn = self.head._element
-        
+        self.head._element = self.head._next
         self._size-=1
         return toreturn 
+    
+
+#test some functionalities
+
+
     
