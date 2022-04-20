@@ -1,4 +1,7 @@
 
+from queue import Empty
+
+
 class linkedlist :
     """_linked list implemenation lIFO STACK_
     """
@@ -45,5 +48,16 @@ class linkedlist :
         self._size += 1
     def top(self):
         """return the top of the stack """
-            
+        if self.is_empty():
+            raise Empty('stack is empty')
+        return self.head._element
+
+    def pop(self):
+        """return the top of the element and remove it from the stack"""
+        if self.is_empty():
+            raise Empty('stack is empty')
+        toreturn = self.head._element
+        
+        self._size-=1
+        return toreturn 
     
