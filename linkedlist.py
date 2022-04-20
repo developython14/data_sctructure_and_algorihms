@@ -57,12 +57,22 @@ class linkedlist :
         if self.is_empty():
             raise Empty('stack is empty')
         toreturn = self.head._element
-        self.head._element = self.head._next
+        self.head = self.head._next
         self._size-=1
         return toreturn 
     
 
 #test some functionalities
 
+new = linkedlist()
 
-    
+new.push(2)  #push 2 in the stack
+new.push(5) #push 5 in the stack
+new.push(-3) #push 5 in the stack
+print(new.is_empty()) # test if the stack is empty
+print(new.top())  # get the top element of the stack
+print(len(new)) #should return 3
+print(new.pop()) #should return -3
+print(new.pop()) #should return 5
+print(new.pop()) #should return 2
+print(len(new)) #should return 3
