@@ -66,20 +66,20 @@ class linkedlist :
 
 new = linkedlist()
 
-new.push(2)  #push 2 in the stack
-new.push(5) #push 5 in the stack
-new.push(-3) #push 5 in the stack
-print(new.is_empty()) # test if the stack is empty
-print(new.top())  # get the top element of the stack
-print(len(new)) #should return 3
-print(new.pop()) #should return -3
-print(new.pop()) #should return 5
-print(new.pop()) #should return 2
-print(len(new)) #should return 3
+#new.push(2)  #push 2 in the stack
+#new.push(5) #push 5 in the stack
+#new.push(-3) #push 5 in the stack
+#print(new.is_empty()) # test if the stack is empty
+#print(new.top())  # get the top element of the stack
+#print(len(new)) #should return 3
+#print(new.pop()) #should return -3
+#print(new.pop()) #should return 5
+#print(new.pop()) #should return 2
+#print(len(new)) #should return 3
 
 
 
-class linkedlistfifo :
+class linkedlistlifo :
     """_linked list implemenation lIFO STACK_
     """
     class _node:
@@ -121,20 +121,20 @@ class linkedlistfifo :
         Args:
             e (_type_): _a new element to the stack _
         """
-        self.head = self._node(e,self.head)
+        self.head = self._node(self.head,e)
         self._size += 1
     def top(self):
         """return the top of the stack """
         if self.is_empty():
             raise Empty('stack is empty')
-        return self.head._element
+        return self.head._next
 
     def pop(self):
         """return the top of the element and remove it from the stack"""
         if self.is_empty():
             raise Empty('stack is empty')
-        toreturn = self.head._element
-        self.head = self.head._next
+        toreturn = self.head._next
+        self.head = self.head._element
         self._size-=1
         return toreturn 
 
