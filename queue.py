@@ -2,6 +2,7 @@
 
 
 from pickle import NONE
+from re import A
 
 
 class queue : 
@@ -10,7 +11,7 @@ class queue :
     class node : 
         """_a base node to use it to implement a linkedlist and queue_
         """
-        def __init__(self):
+        def __init__(self,element,next):
             """_a public constructor to design a Node_
             """
             self.element = None
@@ -42,7 +43,7 @@ class queue :
         """
         if self.is_empty():
             raise Empty('stack is empty')
-        return self.head._element
+        return self.head.element
 
 
 
@@ -54,11 +55,13 @@ class queue :
         Args:
             e (_object_): _element that we will put it in the stack_
         """
+        a =  self.node(e,None)
         if self.is_empty():
-            self.head = node(e,None)
+            print('rah tverisfiel')
+            self.head = a
         else:
-            self.tail.next = node(e,None)
-        self.tail = node(e,None)
+            self.tail.next = a
+        self.tail = a
         self._size +=1
 
 
@@ -70,10 +73,13 @@ class queue :
         
         answer = self.head.element
         self.head = self.head.next
-        self.size -=1
+        self._size -=1
         if self.is_empty():
            self.tail = None
         return  answer
+
+
+
 
 
 
