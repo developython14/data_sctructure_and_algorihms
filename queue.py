@@ -1,6 +1,9 @@
 """.implemenation of queue using python and linkedlist concept:"""
 
 
+from pickle import NONE
+
+
 class queue : 
     """public class represent a queue structure"""
 
@@ -10,10 +13,16 @@ class queue :
         def __init__(self):
             """_a public constructor to design a Node_
             """
+            self.element = None
+            self.next = None
+    
+
+    def __init__(self):
+            """_a public constructor to design a queue_
+            """
             self.head = None
             self.tail = None
-            self._size = 0 
-        
+            self._size = 0     
 
     def __len__(self):
         """_return the lenght of the stack_
@@ -31,6 +40,10 @@ class queue :
     def top(self):
         """_public funtion that return the top of stack or the next elemenent in ordering_
         """
+        if self.is_empty():
+            raise Empty('stack is empty')
+        return self.head._element
+
 
 
         return
@@ -41,10 +54,26 @@ class queue :
         Args:
             e (_object_): _element that we will put it in the stack_
         """
+        if self.is_empty():
+            self.head = node(e,None)
+        else:
+            self.tail.next = node(e,None)
+        self.tail = node(e,None)
+        self._size +=1
 
 
     def pop(self):
         """_public function that return the top element of the stack and remove it_
         """
-
+        if self.is_empty():
+            raise Empty('stack is empty')
         
+        answer = self.head.element
+        self.head = self.head.next
+        self.size -=1
+        if self.is_empty():
+           self.tail = None
+        return  answer
+
+
+
